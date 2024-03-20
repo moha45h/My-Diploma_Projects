@@ -2,9 +2,23 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-Button_Core.c
+APP\Application\main.c
 
-LED_Core.c
+APP\Cfg\KeyPad_Cfg.c
 
-main.c
+APP\Cfg\PORT_Lcfg.c
+
+HAL\Button\Button_Core.c
+
+HAL\KeyPad\KeyPad_Core.c
+
+HAL\LCD\LCD_Core.c
+
+HAL\LED\LED_Core.c
+
+MCAL\DIO\DIO_Core.c
+
+MCAL\IRQH\Interrupt.c
+
+MCAL\PORT\PORT_Core.c
 

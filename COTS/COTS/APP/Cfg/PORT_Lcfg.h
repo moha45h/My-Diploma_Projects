@@ -1,7 +1,7 @@
 /*
- * BIT_Math.h
+ * PORT_Lcfg.h
  *
- * Created: 2/10/2024 8:19:54 PM
+ * Created: 2/17/2024 10:49:06 PM
  *  Author: Ali
  */ 
 
@@ -16,27 +16,24 @@
  *  Description:  <Write File DESCRIPTION here>     
  *  
  *********************************************************************************************************************/
-
-#ifndef BIT_MATH_H_
-#define BIT_MATH_H_
+#ifndef PORT_LCFG_H_
+#define PORT_LCFG_H_
 
 /**********************************************************************************************************************
  * INCLUDES
  *********************************************************************************************************************/
-
+#include "STD.h"
 
 /**********************************************************************************************************************
  *  GLOBAL CONSTANT MACROS
  *********************************************************************************************************************/
+#define   DEFINED_PINS      ((uint8)20U)
 
 
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION MACROS
  *********************************************************************************************************************/
-#define   SET_BIT(Reg,Bit)      (Reg |= (1<<Bit))
-#define  CLR_BIT(Reg,Bit)      (Reg &=~ (1<<Bit))
-#define   TOGGLE_BIT(Reg,Bit)   (Reg ^= (1<<Bit))
-#define   GET_BIT(Reg,Bit)      ((Reg >> Bit) & (0x01))
+
 
 /**********************************************************************************************************************
  *  GLOBAL DATA TYPES AND STRUCTURES
@@ -46,7 +43,58 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA PROTOTYPES
  *********************************************************************************************************************/
+typedef enum 
+{
+	PIN_INPUT = 0,
+	PIN_OUTPUT = 1
+}PIN_DIRECTION_Type;
 
+typedef enum  
+{
+	PORTA_PIN_0 = 0,
+	PORTA_PIN_1 = 1,
+	PORTA_PIN_2 = 2,
+	PORTA_PIN_3 = 3,
+	PORTA_PIN_4 = 4,
+	PORTA_PIN_5 = 5,
+	PORTA_PIN_6 = 6,
+	PORTA_PIN_7 = 7,
+	PORTB_PIN_0 = 8,
+	PORTB_PIN_1 = 9,
+	PORTB_PIN_2 = 10,
+	PORTB_PIN_3 = 11,
+	PORTB_PIN_4 = 12,
+	PORTB_PIN_5 = 13,
+	PORTB_PIN_6 = 14,
+	PORTB_PIN_7 = 15,
+	PORTC_PIN_0 = 16,
+	PORTC_PIN_1 = 17,
+	PORTC_PIN_2 = 18,
+	PORTC_PIN_3 = 19,
+	PORTC_PIN_4 = 20,
+	PORTC_PIN_5 = 21,
+	PORTC_PIN_6 = 22,
+	PORTC_PIN_7 = 23,
+	PORTD_PIN_0 = 24,
+	PORTD_PIN_1 = 25,
+	PORTD_PIN_2 = 26,
+	PORTD_PIN_3 = 27,
+	PORTD_PIN_4 = 28,
+	PORTD_PIN_5 = 29,
+	PORTD_PIN_6 = 30,
+	PORTD_PIN_7 = 31
+}PIN_ORDER_Type;
+
+
+typedef struct  
+{
+	PIN_ORDER_Type  PinOrder;
+	PIN_DIRECTION_Type PinDir;
+}PIN_PARAMETERS_Type;
+
+
+
+extern PIN_PARAMETERS_Type PORT_Init_Pins[DEFINED_PINS];
  
 /**********************************************************************************************************************
  *  GLOBAL FUNCTION PROTOTYPES
@@ -60,7 +108,4 @@
  *********************************************************************************************************************/
 
 
-
-
-
-#endif /* BIT_MATH_H_ */
+#endif /* PORT_LCFG_H_ */
