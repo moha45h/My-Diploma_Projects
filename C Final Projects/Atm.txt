@@ -1,0 +1,21 @@
+    if(arr[0].Account_ID[0]==ID_Number&&arr[0].Account_Password[0]==Password)
+       {
+        printf("The ID And Password belongs To Account_1 \n ");
+        return true;
+        }
+    else if(arr[1].Account_ID[1]=ID_Number&&arr[1].Account_Password[1]==Password)
+        {
+        printf("The ID And Password belongs To Account_2 \n ");
+        return true;
+       }
+
+    else  if(arr[2].Account_ID[2]==ID_Number && arr[2].Account_Password[2]==Password)
+    {
+          printf("The ID And Password belongs To Account_3 \n");
+          return true;
+    }
+    else
+    {
+            printf("Wrong Data Please Insert Valid ID and Password \n");
+            return false;
+    }
