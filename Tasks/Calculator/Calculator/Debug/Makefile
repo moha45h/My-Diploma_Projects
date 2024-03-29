@@ -32,17 +32,19 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../Includes \
+../Src
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../Calculatorc.c \
-../DIO_Core.c \
-../KeyPad_Core.c \
-../LCD_Core.c \
-../main.c \
-../PORT_Core.c
+../Src/Calculatorc.c \
+../Src/DIO_Core.c \
+../Src/KeyPad_Core.c \
+../Src/LCD_Core.c \
+../Src/main.c \
+../Src/PORT_Core.c
 
 
 PREPROCESSING_SRCS += 
@@ -52,36 +54,36 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-Calculatorc.o \
-DIO_Core.o \
-KeyPad_Core.o \
-LCD_Core.o \
-main.o \
-PORT_Core.o
+Src/Calculatorc.o \
+Src/DIO_Core.o \
+Src/KeyPad_Core.o \
+Src/LCD_Core.o \
+Src/main.o \
+Src/PORT_Core.o
 
 OBJS_AS_ARGS +=  \
-Calculatorc.o \
-DIO_Core.o \
-KeyPad_Core.o \
-LCD_Core.o \
-main.o \
-PORT_Core.o
+Src/Calculatorc.o \
+Src/DIO_Core.o \
+Src/KeyPad_Core.o \
+Src/LCD_Core.o \
+Src/main.o \
+Src/PORT_Core.o
 
 C_DEPS +=  \
-Calculatorc.d \
-DIO_Core.d \
-KeyPad_Core.d \
-LCD_Core.d \
-main.d \
-PORT_Core.d
+Src/Calculatorc.d \
+Src/DIO_Core.d \
+Src/KeyPad_Core.d \
+Src/LCD_Core.d \
+Src/main.d \
+Src/PORT_Core.d
 
 C_DEPS_AS_ARGS +=  \
-Calculatorc.d \
-DIO_Core.d \
-KeyPad_Core.d \
-LCD_Core.d \
-main.d \
-PORT_Core.d
+Src/Calculatorc.d \
+Src/DIO_Core.d \
+Src/KeyPad_Core.d \
+Src/LCD_Core.d \
+Src/main.d \
+Src/PORT_Core.d
 
 OUTPUT_FILE_PATH +=Calculator.elf
 
@@ -97,42 +99,42 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-./Calculatorc.o: .././Calculatorc.c
+Src/Calculatorc.o: ../Src/Calculatorc.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./DIO_Core.o: .././DIO_Core.c
+Src/DIO_Core.o: ../Src/DIO_Core.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./KeyPad_Core.o: .././KeyPad_Core.c
+Src/KeyPad_Core.o: ../Src/KeyPad_Core.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./LCD_Core.o: .././LCD_Core.c
+Src/LCD_Core.o: ../Src/LCD_Core.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./main.o: .././main.c
+Src/main.o: ../Src/main.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./PORT_Core.o: .././PORT_Core.c
+Src/PORT_Core.o: ../Src/PORT_Core.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

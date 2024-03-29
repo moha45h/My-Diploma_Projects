@@ -2,15 +2,15 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-Calculatorc.c
+Src\Calculatorc.c
 
-DIO_Core.c
+Src\DIO_Core.c
 
-KeyPad_Core.c
+Src\KeyPad_Core.c
 
-LCD_Core.c
+Src\LCD_Core.c
 
-main.c
+Src\main.c
 
-PORT_Core.c
+Src\PORT_Core.c
 
