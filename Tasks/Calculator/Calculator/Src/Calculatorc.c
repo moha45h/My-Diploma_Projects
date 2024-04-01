@@ -72,6 +72,8 @@ void Calc(void)
 			if (key_val>=0 && key_val <=9)
 			{
 				num[]+=key_val;
+				
+				
 			}
 		}
 }

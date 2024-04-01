@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1707756504 source:c:\users\mohamed\documents\code blocks\atm_system\main.c
+	<stdio.h>
+	<stdlib.h>
+	"ATM.h"
+	<stdint.h>
+
+1706977517 c:\users\mohamed\documents\code blocks\atm_system\atm.h
+
+1707755874 source:c:\users\mohamed\documents\code blocks\atm_system\atm_banking_system.c
+	<stdio.h>
+	<stdlib.h>
+	"ATM.h"
+	<stdint.h>
+	<stdbool.h>
+

@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1707557343 source:c:\users\mohamed\documents\code blocks\school_system\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdint-gcc.h>
+	"School.h"
+
+1707557390 source:c:\users\mohamed\documents\code blocks\school_system\school_manage_system.c
+	"School.h"
+	<stdio.h>
+	<stdint-gcc.h>
+
+1707479553 c:\users\mohamed\documents\code blocks\school_system\school.h
+	<stdint-gcc.h>
+
