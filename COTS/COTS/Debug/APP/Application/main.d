@@ -10,7 +10,7 @@ APP/Application/main.d APP/Application/main.o: ../APP/Application/main.c \
  ../HAL/LED/LED_Core.h ../MCAL/DIO/DIO_Core.h ../HAL/Button/Button_Core.h \
  ../HAL/LCD/LCD_Core.h ../APP/Cfg/LCD_Cfg.h ../HAL/KeyPad/KeyPad_Core.h \
  ../APP/Cfg/KeyPad_Cfg.h ../MCAL/IRQH/Interrupt.h \
- ../APP/Cfg/Interrupt_Cfg.h \
+ ../APP/Cfg/Interrupt_Cfg.h ../MCAL/ADC/ADC_Core.h ../MCAL/GPT/GPT.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -62,6 +62,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../MCAL/IRQH/Interrupt.h:
 
 ../APP/Cfg/Interrupt_Cfg.h:
+
+../MCAL/ADC/ADC_Core.h:
+
+../MCAL/GPT/GPT.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 

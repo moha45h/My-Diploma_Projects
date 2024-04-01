@@ -199,7 +199,7 @@ void LCD_WriteString(uint8* str)
 *******************************************************************************/
 void LCD_WriteInteger(sint32 integer)
 {
-	uint8 temp =1;
+	uint32 temp =1;
 	/*if number is zero */
 	if (integer==0)
 	{
@@ -239,8 +239,7 @@ void LCD_WriteInteger(sint32 integer)
 *                                    E_NOT_OK
 *******************************************************************************/
 void LCD_Goto(uint8 Col , uint8 Row)
-{
-	
+{		uint8 Loc[2] = {0x80 , 0xc0};		LCD_WriteCmd(Loc[Row]+Col);
 }
 
 /******************************************************************************

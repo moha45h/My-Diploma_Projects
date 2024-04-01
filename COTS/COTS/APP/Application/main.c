@@ -14,37 +14,30 @@
 #include "LCD_Core.h"
 #include "KeyPad_Core.h"
 #include "Interrupt.h"
+#include "ADC_Core.h"
+#include "GPT.h"
 #include <avr/interrupt.h>
 
 
 
-
+void wrapperfunction(void)
+{
+			LED_Toggle(LED_0);
+}
 
 int main(void)
 {
-	IRQH_setGIE(INT_ENABLE);
-	IRQ_setExtInterrupt();
+    uint8 val = 0;
+    IRQH_setCallBacks(Timer_Counter1_Compare_Match_A_VECTOR_INDEX,wrapperfunction);
 	PORT_Init();
-	LCD_Init();
-	KeyPad_Init();
-
-	uint8 val = 0;
-  
+	IRQH_setGIE(INT_ENABLE);
+	GPT_Init();
+	GPT_SetTime();
+ 
     while (1) 
-    {
-		val = KeyPad_GetValue();
-		
-		if(val)
-		{
-			LCD_Clear();
-			LCD_WriteData(val);
-			val = 0;
-		}
-		
+    {	
     }
 }
 
-ISR(INT0_vect)
-{
-	LED_Toggle(LED_0);
-}
+
+

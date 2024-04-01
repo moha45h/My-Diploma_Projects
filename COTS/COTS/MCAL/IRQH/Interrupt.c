@@ -20,6 +20,7 @@
  *********************************************************************************************************************/
 #include "Interrupt.h"
 #include "BIT_Math.h"
+#include <avr/interrupt.h>
 
 /**********************************************************************************************************************
 *  LOCAL MACROS CONSTANT\FUNCTION
@@ -32,6 +33,8 @@
 /**********************************************************************************************************************
  *  GLOBAL DATA
  *********************************************************************************************************************/
+void (*CallBack_ptrtofunc[20])(void)={0};
+
 
 /**********************************************************************************************************************
  *  LOCAL FUNCTION PROTOTYPES
@@ -129,7 +132,53 @@ void IRQ_setEXIT(void)
 * \Return value:   : Std_ReturnType  E_OK
 *                                    E_NOT_OK                                  
 *******************************************************************************/
+void IRQH_setCallBacks(uint8 vectortableindex,void(*p)(void))
+{			CallBack_ptrtofunc[vectortableindex] = p;
+}
 
+
+
+
+ISR(INT0_vect)
+{
+	if(CallBack_ptrtofunc[External_Interrupt_Request_0_VECTOR_INDEX] != 0)	{	  (*CallBack_ptrtofunc[External_Interrupt_Request_0_VECTOR_INDEX])();	}
+}
+
+ISR(ADC_vect)
+{
+	uint32 ADC_Digital_val =ADC_INPUT_16BIT_ACCESS;
+	
+	ADC_vinvalue_mv=(ADC_Digital_val * 5000)/1024;
+		if(CallBack_ptrtofunc[ADC_Conversion_Complete_VECTOR_INDEX] != 0)		{			(*CallBack_ptrtofunc[ADC_Conversion_Complete_VECTOR_INDEX])();		}
+}
+
+
+ISR(TIMER0_OVF_vect)
+{
+	static uint32 ovfcnt=0;
+	ovfcnt++;
+	if (ovfcnt==timer0_number_of_over)
+	{
+		if(CallBack_ptrtofunc[Timer_Counter0_Overflow_VECTOR_INDEX] != 0)		{			(*CallBack_ptrtofunc[Timer_Counter0_Overflow_VECTOR_INDEX])();		}
+	
+	
+	ovfcnt=0;
+	TCNT0=timer0_initValue;
+	}
+}
+
+ISR(TIMER1_COMPA_vect)
+{
+		static uint32 matchcnt=0;
+		matchcnt++;
+		if (matchcnt==1U)
+		{
+			if(CallBack_ptrtofunc[Timer_Counter1_Compare_Match_A_VECTOR_INDEX] != 0)			{				(*CallBack_ptrtofunc[Timer_Counter1_Compare_Match_A_VECTOR_INDEX])();			}
+			
+			matchcnt=0;
+			
+		}
+}
 
 /**********************************************************************************************************************
  *  END OF FILE: 
